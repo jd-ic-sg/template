@@ -5,7 +5,9 @@ Installation
 1. VM Preparation
 
     $ https://gluu.org/docs/ce/3.1.5/installation-guide/
+    
     $ Tuning file descriptors is very important as the underlying OpenDJ requires this to run efficiently
+    
     $ FQDN is a must. localhost is not supported
 
 
