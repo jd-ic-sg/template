@@ -19,6 +19,9 @@ Installation
     
     * # ./setup.py
 
+    * # /sbin/gluu-serverd-3.1.5 enable (once only, right after installation)
+
+
 3. Sign in via web browser
 
     * Wait about 10 mins in total for server to restart and finalize its configuration
