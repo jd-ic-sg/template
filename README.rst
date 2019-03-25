@@ -4,11 +4,11 @@ Tips
 This cheat sheet will contain shortcuts or tips to Gluu installation and configuration.
 
 
-Features
---------
+Start server and login
+----------------------
 
-- Be awesome
-- Make things faster
+- # /sbin/gluu-serverd-3.1.5 start
+- # /sbin/gluu-serverd-3.1.5 login
 
 Contribute
 ----------
