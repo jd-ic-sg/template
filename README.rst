@@ -1,14 +1,8 @@
-Template
+Tips
 ========
 
-$project will solve your problem of where to start with documentation,
-by providing a basic explanation of how to do it easily.
+This cheat sheet will contain shortcuts or tips to Gluu installation and configuration.
 
-Look how easy it is to use:
-
-    import project
-    # Get your stuff done
-    project.do_stuff()
 
 Features
 --------
@@ -16,24 +10,17 @@ Features
 - Be awesome
 - Make things faster
 
-Installation
-------------
-
-Install $project by running:
-
-    install project
-
 Contribute
 ----------
 
-- Issue Tracker: github.com/$project/$project/issues
-- Source Code: github.com/$project/$project
+- Issue Tracker: github.com/GluuFederation/oxAuth/issues ; github.com/GluuFederation/oxTrust/issues
+- Source Code: github.com/GluuFederation/oxAuth/ ; github.com/GluuFederation/oxTrust/
 
 Support
 -------
 
 If you are having issues, please let us know.
-We have a mailing list located at: project@google-groups.com
+We have a mailing list located at: jd@ic.sg
 
 License
 -------
