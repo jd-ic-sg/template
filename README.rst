@@ -10,6 +10,16 @@ Start server and login
 - # /sbin/gluu-serverd-3.1.5 start
 - # /sbin/gluu-serverd-3.1.5 login
 
+Restart services
+----------------
+
+- # service httpd restart
+- # service identity restart
+- # service idp restart
+- # service oxauth restart
+- # service oxauth-rp restart
+- # service passport restart
+
 Certificate Management
 ----------------------
 
@@ -56,6 +66,19 @@ Certificate Management
 - [root@localhost certs]# exit
 - [root@sso azlabs]# /sbin/gluu-serverd-3.1.5 restart
 
+Configure Reverse Proxy
+-----------------------
+- [root@localhost]# cd /etc/httpd/conf.d
+- [root@localhost conf.d]# cp https_gluu.conf https_gluu.conf.ORIG
+- [root@localhost]# vi https_gluu.conf
+.. code-block:: java
+  <Location /ciam>
+    ProxyPass http://192.168.1.176:8080/ciam retry=5 connectiontimeout=60 timeout=60
+    Order deny,allow
+    Allow from all
+  </Location>
+
+- # service httpd restart
 
 Contribute
 ----------
