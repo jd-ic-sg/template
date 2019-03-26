@@ -33,13 +33,14 @@ Certificate Management
   
 - Read: https://gluu.org/docs/ce/3.1.5/admin-guide/certificate/
 
-- [root@sso ~]# /sbin/gluu-serverd-3.1.5 login
-- [root@localhost certs]# cd /opt/jdk1.8.0_181/jre/lib/security/
-- [root@localhost security]# cp cacerts cacerts.SELF-SIGNED
+.. code-block:: none
 
+  [root@sso ~]# /sbin/gluu-serverd-3.1.5 login
+  [root@localhost certs]# cd /opt/jdk1.8.0_181/jre/lib/security/
+  [root@localhost security]# cp cacerts cacerts.SELF-SIGNED
 
-- [root@localhost ~]# cd /etc/certs/
-- [root@localhost certs]# cp httpd.crt httpd.crt.SELF-SIGNED
+  [root@localhost ~]# cd /etc/certs/
+  [root@localhost certs]# cp httpd.crt httpd.crt.SELF-SIGNED
 
 
 - [root@localhost certs]# cat httpd.csr 
