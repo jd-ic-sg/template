@@ -23,8 +23,13 @@ Restart services
 Certificate Management
 ----------------------
 
-- Default installation comes with self-signed certificate
-- Better to use a proper certificate from Let's Encrypt
+
+.. important::
+
+  Default installation comes with self-signed certificate
+  Better to use a proper certificate from Let's Encrypt
+  
+  
 - Read: https://gluu.org/docs/ce/3.1.5/admin-guide/certificate/
 
 - [root@sso ~]# /sbin/gluu-serverd-3.1.5 login
