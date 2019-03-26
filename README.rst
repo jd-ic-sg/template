@@ -89,11 +89,6 @@ Configure Reverse Proxy
 .. highlight:: none
 - # service httpd restart
 
-Contribute
-----------
-
-- Issue Tracker: github.com/GluuFederation/oxAuth/issues ; github.com/GluuFederation/oxTrust/issues
-- Source Code: github.com/GluuFederation/oxAuth/ ; github.com/GluuFederation/oxTrust/
 
 Support
 -------
@@ -104,4 +99,4 @@ We have a mailing list located at: jd@ic.sg
 License
 -------
 
-The project is licensed under the BSD license.
+The project is licensed under the `MIT License (MIT) <https://github.com/GluuFederation/oxAuth/blob/master/LICENSE>`__.
