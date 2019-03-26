@@ -72,11 +72,14 @@ Configure Reverse Proxy
 - [root@localhost conf.d]# cp https_gluu.conf https_gluu.conf.ORIG
 - [root@localhost]# vi https_gluu.conf
 .. highlight:: html
+::
+
   <Location /ciam>
     ProxyPass http://192.168.1.176:8080/ciam retry=5 connectiontimeout=60 timeout=60
     Order deny,allow
     Allow from all
   </Location>
+
 .. highlight:: none
 - # service httpd restart
 
