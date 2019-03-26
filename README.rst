@@ -78,7 +78,7 @@ Configure Reverse Proxy
     Order deny,allow
     Allow from all
   </Location>
-
+.. highlight:: none
 - # service httpd restart
 
 Contribute
