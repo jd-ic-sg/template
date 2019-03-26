@@ -10,6 +10,49 @@ Start server and login
 - # /sbin/gluu-serverd-3.1.5 start
 - # /sbin/gluu-serverd-3.1.5 login
 
+Certificate Management
+----------------------
+
+- Default installation comes with self-signed certificate
+- Better to use a proper certificate from Let's Encrypt
+- Read: https://gluu.org/docs/ce/3.1.5/admin-guide/certificate/
+
+- [root@sso ~]# /sbin/gluu-serverd-3.1.5 login
+- [root@localhost certs]# cd /opt/jdk1.8.0_181/jre/lib/security/
+- [root@localhost security]# cp cacerts cacerts.SELF-SIGNED
+
+- [root@localhost ~]# cd /etc/certs/
+- [root@localhost certs]# cp httpd.crt httpd.crt.SELF-SIGNED
+
+- [root@localhost certs]# cat httpd.csr 
+- Copy the content of .csr
+- Go to https://zerossl.com/free-ssl/#crt
+- Follow instructions from AZLABS WIKI (http://192.168.0.13/wiki/doku.php?id=noc:letsencrypt)
+- Rename domain-crt.txt to httpd.crt
+- Upload to Gluu server and copy to /opt/gluu-server-3.1.5/etc/certs/
+
+- [root@localhost certs]# cp /root/httpd.crt .
+cp: overwrite ‘./httpd.crt’? y
+- [root@localhost certs]# openssl x509 -outform der -in httpd.crt -out httpd.der
+
+- [root@localhost certs]# keytool -list -keystore /opt/jdk1.8.0_181/jre/lib/security/cacerts -storepass changeit | grep sso
+sso.azlabs.sg_passport-sp, 25 Mar, 2019, trustedCertEntry, 
+sso.azlabs.sg_idp-signing, 25 Mar, 2019, trustedCertEntry, 
+sso.azlabs.sg_idp-encryption, 25 Mar, 2019, trustedCertEntry, 
+sso.azlabs.sg_asimba, 25 Mar, 2019, trustedCertEntry, 
+sso.azlabs.sg_opendj, 25 Mar, 2019, trustedCertEntry, 
+sso.azlabs.sg_shibidp, 25 Mar, 2019, trustedCertEntry, 
+**sso.azlabs.sg_httpd**, 25 Mar, 2019, trustedCertEntry, 
+
+- [root@localhost certs]# keytool -delete -alias sso.azlabs.sg_httpd -keystore /opt/jdk1.8.0_181/jre/lib/security/cacerts -storepass changeit
+- [root@localhost certs]# keytool -importcert -file ./httpd.der -alias sso.azlabs.sg_httpd -keystore /opt/jdk1.8.0_181/jre/lib/security/cacerts -storepass changeit
+Trust this certificate? [no]:  yes
+Certificate was added to keystore
+
+- [root@localhost certs]# exit
+- [root@sso azlabs]# /sbin/gluu-serverd-3.1.5 restart
+
+
 Contribute
 ----------
 
