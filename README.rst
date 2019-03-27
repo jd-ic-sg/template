@@ -43,7 +43,11 @@ Certificate Management
   [root@localhost certs]# cp httpd.crt httpd.crt.SELF-SIGNED
 
 
-- [root@localhost certs]# cat httpd.csr 
+.. code-block:: none
+
+  [root@localhost certs]# cat httpd.csr 
+  
+  
 - Copy the content of .csr
 - Go to https://zerossl.com/free-ssl/#crt
 - Follow instructions from AZLABS WIKI (http://192.168.0.13/wiki/doku.php?id=noc:letsencrypt)
@@ -51,10 +55,14 @@ Certificate Management
 - Upload to Gluu server and copy to /opt/gluu-server-3.1.5/etc/certs/
 
 
-- [root@localhost certs]# cp /root/httpd.crt .
-- [root@localhost certs]# openssl x509 -outform der -in httpd.crt -out httpd.der
+.. code-block:: none
 
-- [root@localhost certs]# keytool -list -keystore /opt/jdk1.8.0_181/jre/lib/security/cacerts -storepass changeit | grep sso
+  [root@localhost certs]# cp /root/httpd.crt .
+  [root@localhost certs]# openssl x509 -outform der -in httpd.crt -out httpd.der
+
+  [root@localhost certs]# keytool -list -keystore /opt/jdk1.8.0_181/jre/lib/security/cacerts -storepass changeit | grep sso
+  
+  
 .. code-block:: java
 
   sso.azlabs.sg_passport-sp, 25 Mar, 2019, trustedCertEntry, 
@@ -66,12 +74,18 @@ Certificate Management
   **sso.azlabs.sg_httpd**, 25 Mar, 2019, trustedCertEntry, 
 
 
-- [root@localhost certs]# keytool -delete -alias sso.azlabs.sg_httpd -keystore /opt/jdk1.8.0_181/jre/lib/security/cacerts -storepass changeit
-- [root@localhost certs]# keytool -importcert -file ./httpd.der -alias sso.azlabs.sg_httpd -keystore /opt/jdk1.8.0_181/jre/lib/security/cacerts -storepass changeit
+.. code-block:: none
+
+  [root@localhost certs]# keytool -delete -alias sso.azlabs.sg_httpd -keystore /opt/jdk1.8.0_181/jre/lib/security/cacerts -storepass changeit
+  [root@localhost certs]# keytool -importcert -file ./httpd.der -alias sso.azlabs.sg_httpd -keystore /opt/jdk1.8.0_181/jre/lib/security/cacerts -storepass changeit
 
 
-- [root@localhost certs]# exit
-- [root@sso azlabs]# /sbin/gluu-serverd-3.1.5 restart
+.. code-block:: none
+
+  [root@localhost certs]# exit
+  [root@sso azlabs]# /sbin/gluu-serverd-3.1.5 restart
+
+
 
 Configure Reverse Proxy
 -----------------------
