@@ -20,6 +20,20 @@ Restart services
 - # service oxauth-rp restart
 - # service passport restart
 
+
+Tuning
+------
+
+- Location: /etc/default
+- # /sbin/gluu-serverd-3.1.5 login
+
+.. code-block:: none
+
+  [root@localhost default]# ls
+  identity  idp  nss  oxauth  oxauth-rp  passport
+
+
+
 Certificate Management
 ----------------------
 
