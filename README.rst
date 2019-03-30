@@ -25,7 +25,6 @@ Tuning
 ------
 
 - Location: /etc/default
-- # /sbin/gluu-serverd-3.1.5 login
 
 .. code-block:: none
 
