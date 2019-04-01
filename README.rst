@@ -118,6 +118,96 @@ Configure Reverse Proxy
 - # service httpd restart
 
 
+Upgrade from 3.1.x to 3.1.6
+---------------------------
+
+.. code-block:: none
+
+  [root@localhost ~]# wget https://repo.gluu.org/upd/3-1-6-upg.sh
+  [root@localhost ~]# sh 3-1-6-upg.sh 
+    Creating directory /opt/upd/3.1.6upg/
+    Verifying archive integrity...  100%   MD5 checksums are OK. All good.
+
+    Installed:
+      python-ldap.x86_64 0:2.4.15-2.el7                                   python2-jsonschema.noarch 0:2.5.1-3.el7                                  
+    Dependency Installed:
+      python-repoze-lru.noarch 0:0.4-3.el7                                                                                                          
+    Complete!
+    Restarting program
+    Starting upgrade. CONTINUE? (y|N): y
+
+    Would you like to replace all the default Gluu Server scripts WITH SCRIPTS FROM 3.1.6?
+    (This will replace any customization you may have made to these default script entries) (Y|n)
+
+
+.. code-block:: none
+
+    Starting Upgrade...
+    Current Gluu Server version 3.1.5
+    Stopping Jetty: OK
+    Stopping Jetty: OK
+    Updating ldap schema
+    Stopping LDAP Server
+    Stopping OpenDJ
+    Executing /etc/init.d/opendj stop
+    [01/Apr/2019:21:24:49 +0800] category=PLUGGABLE severity=NOTICE msgID=org.opends.messages.backend.370 msg=The backend metric is now taken offline
+    [01/Apr/2019:21:24:49 +0800] category=PLUGGABLE severity=NOTICE msgID=org.opends.messages.backend.370 msg=The backend site is now taken offline
+    [01/Apr/2019:21:24:50 +0800] category=PLUGGABLE severity=NOTICE msgID=org.opends.messages.backend.370 msg=The backend userRoot is now taken offline
+    [01/Apr/2019:21:24:50 +0800] category=CORE severity=NOTICE msgID=org.opends.messages.core.203 msg=The Directory Server is now stopped
+    /opt/opendj/config/schema/101-ox.ldif
+    Backing up /opt/opendj/config/schema/101-ox.ldif
+    Copying new_schema /opt/upd/3.1.6upg/ldap/opendj/101-ox.ldif
+    Copying new_schema /opt/upd/3.1.6upg/ldap/opendj/96-eduperson.ldif
+    Starting LDAP Server
+    Starting OpenDJ
+    Executing /etc/init.d/opendj start
+    oxAuthLogoutURI modified
+    oxAuthPostLogoutRedirectURI modified
+    Backing up current scripts
+    Deleting current script inum=@!4CDC.D57C.C87D.1D6D!0001!1F07.55B8!2124.0CF1,ou=scripts,o=@!4CDC.D57C.C87D.1D6D!0001!1F07.55B8,o=gluu
+    Adding new script inum=@!4CDC.D57C.C87D.1D6D!0001!1F07.55B8!2124.0CF1,ou=scripts,o=@!4CDC.D57C.C87D.1D6D!0001!1F07.55B8,o=gluu
+    :
+    :
+    Backing up oxauth.war to /opt/upd/3.1.6upg/backup_2019-04-01.21:24:27
+    Updating oxauth.war
+    Backing up identity.war to /opt/upd/3.1.6upg/backup_2019-04-01.21:24:27
+    Updating identity.war
+    Backing up idp.war to /opt/upd/3.1.6upg/backup_2019-04-01.21:24:27
+    Updating idp.war
+    checking /opt/shibboleth-idp/metadata/idp-metadata.xml
+    Updating jetty
+    chown: cannot access ‘/opt/jetty-9.4/temp/jetty-localhost-8086-idp.war-_idp-any-5944512476372526077.dir’: No such file or directory
+    Updating Passport
+    Stopping passport: OK
+    tar: Removing leading `/' from member names
+    Extracting passport.tgz into /opt/gluu/node/passport
+    Extracting passport node modules
+    oxAuthenticationMode was set to auth_ldap_server
+    oxTrustAuthenticationMode was set to auth_ldap_server
+    oxCacheConfiguration was modified as {"cacheProviderType": "IN_MEMORY", "nativePersistenceConfiguration": {"defaultPutExpiration": 60}, "redisConfiguration": {"useSSL": false, "defaultPutExpiration": 60, "servers": "localhost:6379", "sslTrustStoreFilePath": "", "decryptedPassword": null, "password": null, "redisProviderType": "STANDALONE"}, "memcachedConfiguration": {"servers": "localhost:11211", "defaultPutExpiration": 60, "bufferSize": 32768, "maxOperationQueueLength": 100000, "connectionFactoryType": "DEFAULT"}, "inMemoryConfiguration": {"defaultPutExpiration": 60}}
+    Updating oxAuthConfDynamic
+    Updating oxTrustConfApplication
+    Updating oxAuthConfErrors
+    Backing up /opt/shibboleth-idp to /opt/upd/3.1.6upg/backup_2019-04-01.21:24:27
+    Updating idp-metadata.xml
+    Updadting shibboleth-idp
+
+
+  Please Note: oxAuthenticationMode and oxTrustAuthenticationMode was
+  set to auth_ldap_server in case custom authentication script fails.
+  Please review your scripts and adjust default authentication method
+
+  Update is complete, please exit from container and restart gluu server
+
+
+.. code-block:: none
+
+  [root@localhost ~]# exit
+  logout
+  [root@sso azlabs]# /sbin/gluu-serverd-3.1.5 restart
+
+
+
 Support
 -------
 
