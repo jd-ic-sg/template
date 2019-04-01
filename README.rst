@@ -215,11 +215,14 @@ Upgrade from 3.1.x to 3.1.6
 
   It is good to maintain a README.LATEST manually
   
-  [root@sso opt]# pwd
-  /opt
+  [root@sso]# cd /opt
+
   [root@sso opt]# cat README.LATEST 
+  
   Current Gluu Server version 3.1.5
+  
   Current Gluu Server version 3.1.6 <-- 1.APR.2019
+
 
 
 Support
