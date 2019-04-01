@@ -207,6 +207,20 @@ Upgrade from 3.1.x to 3.1.6
   [root@sso azlabs]# /sbin/gluu-serverd-3.1.5 restart
 
 
+.. important::
+
+  Scripts and directories outside the Chroot will still reflect the version from which you upgraded. For example, if you started with version 3.1.3, the directory will still be gluu-server-3.1.3 even after upgrading to 3.1.6.
+  
+.. important::
+
+  It is good to maintain a README.LATEST manually
+  
+  [root@sso opt]# pwd
+  /opt
+  [root@sso opt]# cat README.LATEST 
+  Current Gluu Server version 3.1.5
+  Current Gluu Server version 3.1.6 <-- 1.APR.2019
+
 
 Support
 -------
