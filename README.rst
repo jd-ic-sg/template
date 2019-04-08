@@ -21,6 +21,21 @@ Restart services
 - # service passport restart
 
 
+Install Memcached
+-----------------
+- [root@localhost]# yum clean all
+- [root@localhost]# yum -y update
+- [root@localhost]# yum -y install memcached
+
+.. highlight:: html
+::
+
+  TO DO: Document down how to integre with Gluu https://www.liquidweb.com/kb/how-to-install-memcached-on-centos-7/
+
+.. highlight:: none
+
+
+
 Tuning
 ------
 
