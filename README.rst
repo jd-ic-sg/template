@@ -239,6 +239,14 @@ Upgrade from 3.1.x to 3.1.6
   Current Gluu Server version 3.1.6 <-- 1.APR.2019
 
 
+Expired Access Token Handling
+-----------------------------
+  
+.. important::
+
+  {"error":"invalid_grant_and_session","error_description":"The provided access token and session state are invalid or were issued to another client.","reason":"id_token_hint is not valid. Logout is rejected. id_token_hint can be skipped or otherwise valid value must be provided."}
+
+  
 
 Support
 -------
