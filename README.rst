@@ -20,7 +20,22 @@ Restart services
 - # service oxauth-rp restart
 - # service passport restart
 
+oxTrust (/identity)
+-----------------
 
+.. important::
+
+  oxTrust is widely used in documentation and Admin UI. The web context is /identity.
+  
+  Configuration can be directly found in LDAP under ou=oxtrust,ou=configuration,inum=[appliance-number],ou=appliances,o=gluu
+
+
+Logging
+-------
+
+- Enable debug logging at Configuration > JSON Configuration > oxTrust Configuration > loggingLevel (switch from INFO to DEBUG)
+
+  
 Install Memcached
 -----------------
 - [root@localhost]# yum clean all
