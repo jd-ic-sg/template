@@ -35,7 +35,19 @@ Logging
 
 - Enable debug logging at Configuration > JSON Configuration > oxTrust Configuration > loggingLevel (switch from INFO to DEBUG)
 
-  
+
+Debugging
+---------
+- Build oxTrust with $ mvn clean install -DskipTests  
+- SCP oxtrust-server.war from .../git/oxTrust/server/target to Gluu server
+- In Gluu server, remember it is a chroot environment
+- Rename oxtrust-server.war to identity.war
+- Copy to /opt/gluu/jetty/identity/webapps
+- # service identity restart
+- The war file will be exploded to /opt/jetty-9.4/temp/jetty-localhost-8082-identity.war-_identity-any-XXXX.dir
+- Watch the logs in /opt/gluu/jetty/identity/logs
+
+
 Install Memcached
 -----------------
 - [root@localhost]# yum clean all
