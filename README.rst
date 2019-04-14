@@ -266,6 +266,26 @@ Upgrade from 3.1.x to 3.1.6
   Current Gluu Server version 3.1.6 <-- 1.APR.2019
 
 
+
+Change IP Address
+-----------------
+
+If your IP changes after initial setup, you need to change your Gluu Server's configuration.
+
+1. Start the Gluu Server
+2. Change to new IP address in /etc/hosts
+3. Log into Gluu Server Chroot container
+4. Change to new IP address in /etc/hosts
+
+.. important::
+    Apache and LDAP Configuration are automatically changed to reflect the new IP, unlike previous version of Gluu
+
+
+5. Exit  Gluu Server Chroot container
+6. Restart  Gluu Server Chroot container with /sbin/gluu-serverd-3.1.5 restart
+7. Test
+
+
 Expired Access Token Handling
 -----------------------------
   
